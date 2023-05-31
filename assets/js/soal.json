@@ -1,0 +1,40 @@
+{
+    "data": [
+        {
+            "nomor": "1",
+            "waktu" : "10",
+            "soal": "Apakah bla bka?",
+            "list_jawaban": [
+                {"a" : "lorem ipsum"},
+                {"b" : "lorem ipsum"},
+                {"c" : "lorem ipsum"},
+                {"d" : "lorem ipsum"}
+            ],
+            "jawaban_benar": "a"
+        },
+        {
+            "nomor": "2",
+            "waktu" : "7",
+            "soal": "Apakah bla bka?",
+            "list_jawaban": [
+                {"a" : "lorem ipsum"},
+                {"b" : "lorem ipsum"},
+                {"c" : "lorem ipsum"},
+                {"d" : "lorem ipsum"}
+            ],
+            "jawaban_benar": "b"
+        },
+        {
+            "nomor": "3",
+            "waktu" : "7",
+            "soal": "Apakah bla bka?",
+            "list_jawaban": [
+                {"a" : "lorem ipsum"},
+                {"b" : "lorem ipsum"},
+                {"c" : "lorem ipsum"},
+                {"d" : "lorem ipsum"}
+            ],
+            "jawaban_benar": "d"
+        }
+    ]
+}
