@@ -1,10 +1,10 @@
 # Final Project 4 - Group 3
 
 ### Kelompok 3
-- Triyono Rifan 
-- Moh Dodi Setyawan
+- Delin Herliana Pasha
 - Fitria Nurul Hikhmah 
 - Gheina Gemalia Thalita 
-- Delin Herliana Pasha
+- Moh Dodi Setyawan
+- Triyono Rifan 
 
 ## Production
