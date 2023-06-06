@@ -37,6 +37,10 @@ p a:hover {
   cursor: pointer;
 }
 
+.btn:hover {
+  background-color:#00B6A6; 
+  color: white;
+}
 .border-1 {
   border-color: #00B6A6;
 }
