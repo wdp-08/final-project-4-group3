@@ -44,3 +44,9 @@
     background-color: #ffff; 
     color: #00B6A6;
 }
+
+.btn-score:hover {
+    border-color: #00B6A6;
+    background-color: #00B6A6; 
+    color: #ffff;
+}
