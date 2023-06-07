@@ -50,3 +50,22 @@
     background-color: #00B6A6; 
     color: #ffff;
 }
+
+
+/* Responsive */
+@media (max-width: 575.98px) {
+    .emoticon-score {
+        display: none;
+    }
+
+
+}
+
+@media (max-width: 767.98px) {
+
+    .result-score h1 {
+        font-size: 100px;
+    }
+
+}
+
