@@ -1,0 +1,46 @@
+* {
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+    font-family: 'Poppins', sans-serif;
+}
+
+.result-score {
+    padding-right: 60px;
+    padding-bottom: 60px;
+}
+.result-score h1 {
+    color: #00B6A6;
+    font-size: 150px;
+    font-weight: bold;
+    padding-left: 60px;
+    margin-bottom: -15px;
+    margin-top: -15px;
+}
+
+.result-score p {
+    color: #00B6A6;
+    font-size: 20px;
+    font-weight: bold;
+    width: 232px;
+    height: 60px;
+    padding-top: 20px;
+    margin-left: 90px;
+}
+
+.emoticon-score {
+    padding-left: 60px;
+}
+
+.btn-score {
+    border-color: #00B6A6;
+    font-weight: bold;
+    border: 3px solid;
+    border-radius: 10px;
+    width: 163px;
+    height: 45px;
+    margin: 30px;
+    font-size: 20px;
+    background-color: #ffff; 
+    color: #00B6A6;
+}
