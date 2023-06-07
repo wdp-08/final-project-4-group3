@@ -3,38 +3,122 @@
         {
             "nomor": "1",
             "waktu" : "10",
-            "soal": "Apakah bla bka?",
+            "soal": "Pulau Komodo terletak di provinsi?",
             "list_jawaban": [
-                {"a" : "lorem ipsum"},
-                {"b" : "lorem ipsum"},
-                {"c" : "lorem ipsum"},
-                {"d" : "lorem ipsum"}
-            ],
-            "jawaban_benar": "a"
-        },
-        {
-            "nomor": "2",
-            "waktu" : "7",
-            "soal": "Apakah bla bka?",
-            "list_jawaban": [
-                {"a" : "lorem ipsum"},
-                {"b" : "lorem ipsum"},
-                {"c" : "lorem ipsum"},
-                {"d" : "lorem ipsum"}
+                {"a" : "NTT"},
+                {"b" : "NTB"},
+                {"c" : "NTB"},
+                {"d" : "Depok"}
             ],
             "jawaban_benar": "b"
         },
         {
-            "nomor": "3",
-            "waktu" : "7",
-            "soal": "Apakah bla bka?",
+            "nomor": "2",
+            "waktu" : "10",
+            "soal": "Pada tanggal berapakah Hari Lahir Pancasila diperingati?",
             "list_jawaban": [
-                {"a" : "lorem ipsum"},
-                {"b" : "lorem ipsum"},
-                {"c" : "lorem ipsum"},
-                {"d" : "lorem ipsum"}
+                {"a" : "17 Agustus"},
+                {"b" : "1 Maret"},
+                {"c" : "1 Juni "},
+                {"d" : "1 Desember "}
+            ],
+            "jawaban_benar": "c"
+        },
+        {
+            "nomor": "3",
+            "waktu" : "10",
+            "soal": "Disebut apakah binatang yang dapat hidup di dua alam, yaitu darat dan laut?",
+            "list_jawaban": [
+                {"a" : "Amfibi"},
+                {"b" : "Mamalia"},
+                {"c" : "Reptil"},
+                {"d" : "Pisces"}
+            ],
+            "jawaban_benar": "a"
+        },
+        {
+            "nomor": "4",
+            "waktu" : "10",
+            "soal": "Belajar suatu ilmu atau pengetahuan secara pribadi atau sendiri disebut?",
+            "list_jawaban": [
+                {"a" : "Otodadik"},
+                {"b" : "Otodidak"},
+                {"c" : "Mandiri"},
+                {"d" : "Kinestetik"}
+            ],
+            "jawaban_benar": "b"
+        },
+        {
+            "nomor": "5",
+            "waktu" : "10",
+            "soal": "Gurun terluas di dunia disebut?",
+            "list_jawaban": [
+                {"a" : "Gurun Antartika"},
+                {"b" : "Gurun Taklamakan"},
+                {"c" : "Gurun Cholistan"},
+                {"d" : "Gurun Pasir Telaga Biru Busung"}
+            ],
+            "jawaban_benar": "a"
+        },
+        {
+            "nomor": "6",
+            "waktu" : "10",
+            "soal": "Ikon untuk menyimpan data pada program-program Microsoft seperti MS Word, adalah?",
+            "list_jawaban": [
+                {"a" : "Pensil"},
+                {"b" : "CD"},
+                {"c" : "Disket"},
+                {"d" : "Foto"}
+            ],
+            "jawaban_benar": "c"
+        },
+        {
+            "nomor": "7",
+            "waktu" : "10",
+            "soal": "Tokoh utama film “Toy Story” adalah?",
+            "list_jawaban": [
+                {"a" : "Rudy"},
+                {"b" : "Casper"},
+                {"c" : "Luffy"},
+                {"d" : "Woody"}
             ],
             "jawaban_benar": "d"
+        },
+        {
+            "nomor": "8",
+            "waktu" : "10",
+            "soal": "Julukan kota Pelajar di Indonesia adalah?",
+            "list_jawaban": [
+                {"a" : "Palembang"},
+                {"b" : "Yogyakarta"},
+                {"c" : "Solo"},
+                {"d" : "Bandung"}
+            ],
+            "jawaban_benar": "b"
+        },
+        {
+            "nomor": "9",
+            "waktu" : "10",
+            "soal": "Suku Aborigin berasal dari negara?",
+            "list_jawaban": [
+                {"a" : "Australia"},
+                {"b" : "Amerika"},
+                {"c" : "Eropa"},
+                {"d" : "Indonesia"}
+            ],
+            "jawaban_benar": "a"
+        },
+        {
+            "nomor": "10",
+            "waktu" : "10",
+            "soal": "Gigi taring pada manusia berguna untuk?",
+            "list_jawaban": [
+                {"a" : "Mengunyah makanan"},
+                {"b" : "Mengigit makanan"},
+                {"c" : "Mencabik makanan"},
+                {"d" : "Menelan makanan"}
+            ],
+            "jawaban_benar": "c"
         }
     ]
 }
