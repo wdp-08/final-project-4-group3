@@ -8,14 +8,14 @@ const Dashboard = {
     <section class="pb-5" style="background-color: #00B6A6; min-height:100vh;">
         <div class="container">
             <div class="d-flex justify-content-end">
-                <button class="btn btn-light mt-4 text-primary-me fw-bold" id="btn-logout"><i class="bi bi-box-arrow-right me-2"></i> logout</button>
+                <button class="btn btn-light mt-4 text-primary-me fw-bold" id="btn-logout"><i class="bi bi-box-arrow-right me-2"></i> Logout</button>
             </div>
             <div class="card mt-5 mb-5">
-                <div class="card-body p-5">
+                <div class="card-body p-md-5 p-4">
                     <div class="row">
 
 
-                        <div class="col-lg-5">
+                        <div class="col-lg-5 mb-3">
                             <div class="card shadow-me border border-0 mb-4">
                                 <div class="card-body text-center">
                                     <img src="./images/profile.png" class="card-img-top rounded rounded-circle" alt="profile" style="max-width: 50%; height: auto" id="url_foto" />
@@ -111,7 +111,7 @@ const Dashboard = {
   },
 
   async _logout() {
-    const result = await questionSwal('Di you wil Logout?');
+    const result = await questionSwal('Log Out from QuizzMee ?');
     if (result !== false) {
       localStorage.removeItem('token_access');
       localStorage.removeItem('user_quizmee');
