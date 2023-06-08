@@ -1,5 +1,6 @@
-import Swal from 'sweetalert2';
-import { getUserInfo, innerElement, redirect } from '../../utils/functions';
+import {
+  getUserInfo, innerElement, questionSwal, redirect,
+} from '../../utils/functions';
 
 const Dashboard = {
   async render() {
@@ -15,24 +16,24 @@ const Dashboard = {
 
 
                         <div class="col-lg-5">
-                            <div class="card mt-2 shadow-me border border-0 mb-4">
+                            <div class="card shadow-me border border-0 mb-4">
                                 <div class="card-body text-center">
                                     <img src="./images/profile.png" class="card-img-top rounded rounded-circle" alt="profile" style="max-width: 50%; height: auto" id="url_foto" />
-                                    <h5 class="card-title text-capitalize my-3" id="nama_user">Admin</h5>
+                                    <h5 class="card-title text-capitalize my-3 fw-bold" id="nama_user">Admin</h5>
                                     <p class="card-text" id="email">admin@gmail.com</p>
                                 </div>
                             </div>
                             <div class="card mt-2 border border-0">
                                 <div class="d-grid gap-2">
-                                    <button class="btn btn-slate-green fw-bold" type="button">Start QuizzMee</button>
+                                    <button class="btn btn-slate-green fw-bold" id="btn-start-quiz" type="button">Start QuizzMee</button>
                                 </div>
                             </div>
                         </div>
 
 
                         <div class="col-lg-7">
-                            <div class="card mt-2 text-center shadow-me bg-green-me border border-0">
-                                <h1 style="color: #ffff;">Riwayat Quizz</h1>
+                            <div class="card text-center shadow-me bg-green-me border border-0 p-2">
+                                <h1 class="text-white fw-bold">History Score QuizzMee</h1>
                             </div>
                             <div id="list-history-score">
                                 <div class="card mt-2 shadow-me border border-0">
@@ -110,20 +111,19 @@ const Dashboard = {
   },
 
   async _logout() {
-    Swal.fire({
-      title: 'Do you want to Logout?',
-      icon: 'question',
-      showCancelButton: true,
-      confirmButtonText: 'Logout',
-      confirmButtonColor: '#00B6A6',
-    }).then((result) => {
-      /* Read more about isConfirmed, isDenied below */
-      if (result.isConfirmed) {
-        localStorage.removeItem('token_access');
-        localStorage.removeItem('user_quizmee');
-        window.location.reload();
-      }
-    });
+    const result = await questionSwal('Di you wil Logout?');
+    if (result !== false) {
+      localStorage.removeItem('token_access');
+      localStorage.removeItem('user_quizmee');
+      window.location.reload();
+    }
+  },
+
+  async _startQuiz() {
+    const result = await questionSwal('Ready to start QuizMee?');
+    if (result) {
+      redirect('#/quiz');
+    }
   },
 
   async afterRender() {
@@ -137,7 +137,9 @@ const Dashboard = {
       innerElement('#email', userAccess.email);
 
       const btnLogout = document.querySelector('#btn-logout');
+      const btnStartQuiz = document.querySelector('#btn-start-quiz');
       btnLogout.addEventListener('click', this._logout);
+      btnStartQuiz.addEventListener('click', this._startQuiz);
     }
   },
 };

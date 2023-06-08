@@ -87,6 +87,18 @@ async function isExistUser(db, email) {
   return null;
 }
 
+async function questionSwal(title) {
+  const swal = await Swal.fire({
+    title,
+    icon: 'question',
+    showCancelButton: true,
+    confirmButtonText: 'Yes',
+    confirmButtonColor: '#00B6A6',
+  });
+  const result = swal.isConfirmed;
+  return result;
+}
+
 export {
   isLogin,
   getUserInfo,
@@ -99,4 +111,5 @@ export {
   removeClassElement,
   innerElement,
   isExistUser,
+  questionSwal,
 };
