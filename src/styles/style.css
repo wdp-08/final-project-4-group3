@@ -52,3 +52,61 @@ p a:hover {
 .bg-green-me{
     background-color: var(--primary);
 }
+
+#answer {
+    background: #fff;
+    color: #222222;
+    font-weight: 500;
+    border: 1px solid #222;
+    padding: 10px;
+    margin: 10px 0;
+    text-align: left;
+    cursor: pointer;
+    border-radius: 5px;
+    transition: all 0.3s;
+}
+
+#answer:hover {
+    background: #222;
+    color: #fff;
+}
+
+#next-btn {
+    background: #00B6A6;
+    color: #fff;
+    font-weight: 500;
+    width: 150;
+    border: 0;
+    padding: 10px;
+    border-radius: 4px;
+    cursor: pointer;
+    display: block;
+}
+#next-btn:hover {
+    background: #0e504b;
+    color: #fff;
+}
+
+
+/* mobile */
+@media (max-width: 575.98px) {
+    #gambar {
+        display: none;
+    }
+
+}
+
+/* mobile 2 */
+@media (max-width: 767.98px) {
+
+    /* .card {
+        height: 20rem;
+        width: 100%;
+    } */
+    #gambar {
+        display: none;
+    }
+
+
+
+}
