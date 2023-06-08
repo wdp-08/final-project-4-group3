@@ -1,3 +1,5 @@
+import RegisterAkun from '../../utils/registerAkun';
+
 const Register = {
   async render() {
     return `
@@ -8,7 +10,7 @@ const Register = {
                     <div class="card text-center py-5">
                         <h2 class="mb-3 fw-bold text-primary-me">Register</h2>
                         <div style="border-bottom: 0.1rem solid #00A496;  width: 3.5rem; margin: auto; "></div>
-                        <button type="submit" class="btn btn-light border-1 my-5">
+                        <button type="submit" class="btn btn-light border-1 my-5" id="btn-register">
                             <span class="google-icon"><img src="./images/logo-google.png" alt="Google"></span>
                             Register with Google</button>
                         <p class="mb-2">Do you have an account? 
@@ -26,7 +28,11 @@ const Register = {
   },
 
   async afterRender() {
-    // Fungsi ini akan dipanggil setelah render()
+    const btnregister = document.getElementById('btn-register');
+    btnregister.addEventListener('click', async (e) => {
+      e.preventDefault();
+      await RegisterAkun.init();
+    });
   },
 };
 

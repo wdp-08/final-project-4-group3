@@ -26,6 +26,8 @@
     "webpack-merge": "^5.8.0"
   },
   "dependencies": {
-    "regenerator-runtime": "^0.13.11"
+    "firebase": "^9.22.1",
+    "regenerator-runtime": "^0.13.11",
+    "sweetalert2": "^11.7.11"
   }
 }
