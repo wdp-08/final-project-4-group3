@@ -1,9 +1,9 @@
-import FetchDataSoalQuiz from '../../data/soal-quiz';
 import {
   addClassElement,
   getUserInfo, innerElement, questionSwal, redirect, removeClassElement,
 } from '../../utils/functions';
-import soalQuiz from '../../utils/soalQuiz';
+import ScoreInit from '../../utils/scoreInit';
+import { cardHistoryScore, cardNotYetHistoryScore } from '../templates/template';
 
 const Dashboard = {
   async render() {
@@ -39,70 +39,7 @@ const Dashboard = {
                                 <h1 class="text-white fw-bold">History Score QuizzMee</h1>
                             </div>
                             <div id="list-history-score">
-                                <div class="card mt-2 shadow-me border border-0">
-                                    <div class="card-body">
-                                        <div class="d-flex justify-content-between align-items-center px-4">
-                                            <span class="fs-5">22 Mei 2023</span>
-                                            <span class="fw-bold fs-3 text-center">90</span>
-                                        </div>
-                                    </div>
-                                </div>
-                                <div class="card mt-2 shadow-me border border-0">
-                                    <div class="card-body">
-                                        <div class="d-flex justify-content-between align-items-center px-4">
-                                            <span class="fs-5">22 Mei 2023</span>
-                                            <span class="fw-bold fs-3 text-center">90</span>
-                                        </div>
-                                    </div>
-                                </div>
-                                <div class="card mt-2 shadow-me border border-0">
-                                    <div class="card-body">
-                                        <div class="d-flex justify-content-between align-items-center px-4">
-                                            <span class="fs-5">22 Mei 2023</span>
-                                            <span class="fw-bold fs-3 text-center">90</span>
-                                        </div>
-                                    </div>
-                                </div>
-                                <div class="card mt-2 shadow-me border border-0">
-                                    <div class="card-body">
-                                        <div class="d-flex justify-content-between align-items-center px-4">
-                                            <span class="fs-5">22 Mei 2023</span>
-                                            <span class="fw-bold fs-3 text-center">90</span>
-                                        </div>
-                                    </div>
-                                </div>
-                                <div class="card mt-2 shadow-me border border-0">
-                                    <div class="card-body">
-                                        <div class="d-flex justify-content-between align-items-center px-4">
-                                            <span class="fs-5">22 Mei 2023</span>
-                                            <span class="fw-bold fs-3 text-center">90</span>
-                                        </div>
-                                    </div>
-                                </div>
-                                <div class="card mt-2 shadow-me border border-0">
-                                    <div class="card-body">
-                                        <div class="d-flex justify-content-between align-items-center px-4">
-                                            <span class="fs-5">22 Mei 2023</span>
-                                            <span class="fw-bold fs-3 text-center">90</span>
-                                        </div>
-                                    </div>
-                                </div>
-                                <div class="card mt-2 shadow-me border border-0">
-                                    <div class="card-body">
-                                        <div class="d-flex justify-content-between align-items-center px-4">
-                                            <span class="fs-5">22 Mei 2023</span>
-                                            <span class="fw-bold fs-3 text-center">90</span>
-                                        </div>
-                                    </div>
-                                </div>
-                                <div class="card mt-2 shadow-me border border-0">
-                                    <div class="card-body">
-                                        <div class="d-flex justify-content-between align-items-center px-4">
-                                            <span class="fs-5">22 Mei 2023</span>
-                                            <span class="fw-bold fs-3 text-center">90</span>
-                                        </div>
-                                    </div>
-                                </div>
+                                
                             </div>
                         </div>
                     </div>
@@ -179,6 +116,18 @@ const Dashboard = {
       btnLogout.addEventListener('click', this._logout);
       btnStartQuiz.addEventListener('click', this._startQuiz);
       kategoriQuiz.addEventListener('change', this._chooseCategory);
+
+      const riwayatScore = await ScoreInit.getScoreByEmail(userAccess.email);
+      const listhistoryscore = document.getElementById('list-history-score');
+      if (riwayatScore !== null) {
+        riwayatScore.forEach((doc) => {
+          const resultData = doc.data();
+          resultData.id = doc.id;
+          listhistoryscore.innerHTML += cardHistoryScore(resultData);
+        });
+      } else {
+        listhistoryscore.innerHTML += cardNotYetHistoryScore();
+      }
     }
   },
 };

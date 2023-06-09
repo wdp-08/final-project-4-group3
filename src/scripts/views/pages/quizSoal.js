@@ -1,8 +1,4 @@
-/* eslint-disable no-bitwise */
-import {
-  flashMessage,
-  formatTimeLeft, innerElement, questionSwal, redirect, removeClassElement,
-} from '../../utils/functions';
+import { getUserInfo, redirect, removeClassElement } from '../../utils/functions';
 import soalQuiz from '../../utils/soalQuiz';
 
 const QuizSoal = {
@@ -43,11 +39,16 @@ const QuizSoal = {
   },
 
   async afterRender() {
+    const userAccess = getUserInfo();
     const getCat = JSON.parse(localStorage.getItem('cat')).cat_quiz;
-    await soalQuiz.init(getCat);
-    removeClassElement('.fade', 'show');
-    removeClassElement('.fade', 'modal-backdrop');
-    removeClassElement('.fade', 'fade');
+    if (!userAccess || !getCat) {
+      redirect('#/');
+    } else {
+      await soalQuiz.init(getCat);
+      removeClassElement('.fade', 'show');
+      removeClassElement('.fade', 'modal-backdrop');
+      removeClassElement('.fade', 'fade');
+    }
     // console.log(allSoal);
     // const notifikasi = new Audio('./music/quiz.mp3');
 

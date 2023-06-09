@@ -1,7 +1,7 @@
 /* eslint-disable no-bitwise */
 import FetchDataSoalQuiz from '../data/soal-quiz';
 import { cardSoal, cardTemplateAnswers } from '../views/templates/template';
-import { flashMessage, removeClassElement } from './functions';
+import { flashMessage, getUserInfo, redirect } from './functions';
 
 let timeLeft = 11;
 let timeInterval = null;
@@ -35,7 +35,16 @@ function _renderTime() {
     } else {
       clearInterval(timeInterval);
       flashMessage('success', 'Selesai', `Your score ${scoreUser}`);
-      console.log('akhir', scoreUser);
+      const userInfo = getUserInfo();
+      const date = new Date();
+      const hasilQuis = {
+        score: scoreUser,
+        email: userInfo.email,
+        id_user: userInfo.id,
+        tanggal: date.toISOString(),
+      };
+      localStorage.setItem('hasil_score', JSON.stringify(hasilQuis));
+      redirect('#/score');
     }
   }
 }
@@ -55,7 +64,6 @@ function _renderSoal(antrianQuestion) {
   correctAnswer = showsoal.correct_answer;
   answers.splice((answers.length + 1) * Math.random() | 0, 0, showsoal.correct_answer);
   cardquestion.innerHTML = cardSoal(showsoal, antrianQuestion, lastQuestion);
-  console.log(answers, showsoal);
   answers.forEach((val, key) => {
     cardanswers.innerHTML += cardTemplateAnswers(val);
   });

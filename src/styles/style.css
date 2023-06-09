@@ -90,10 +90,75 @@ label {
 }
 
 
+
+/* score */
+.card-baner-score{
+    margin: 50px; 
+    background-color: #00B6A6; 
+    height: 80px; 
+    box-shadow: 0 3px 5px rgb(0 0 0 / 0.2);
+}
+.result-score h1 {
+    color: #00B6A6;
+    font-size: 150px;
+    font-weight: bold;
+    text-decoration: underline;
+    margin-bottom: -15px;
+    margin-top: -15px;
+}
+
+.result-score p {
+    color: #00B6A6;
+    font-size: 20px;
+    font-weight: bold;
+    width: 232px;
+    padding-top: 20px;
+}
+
+
+.btn-score {
+    border-color: #00B6A6;
+    font-weight: bold;
+    border: 3px solid;
+    border-radius: 10px;
+    width: 163px;
+    height: 45px;
+    margin: 30px;
+    font-size: 20px;
+    background-color: #ffff; 
+    color: #00B6A6;
+    margin-top: 50px;
+}
+
+.btn-score:hover {
+    border-color: #00B6A6;
+    background-color: #00B6A6; 
+    color: #ffff;
+}
+/* akhie score */
+
+
 /* mobile */
 @media (max-width: 575.98px) {
     #gambar {
         display: none;
+    }
+    .card-baner-score h1{
+        margin: 15px;
+        font-size: 23px;
+    }
+    .emoticon-score {
+        width: 140px; 
+        height: 110px;
+    }
+    .result-score p {
+        font-size: 15px;
+    }
+    .btn-score {
+        width: 133px;
+        height: 35px;
+        font-size: 15px;
+        margin-top: 50px;
     }
 
 }
@@ -109,6 +174,20 @@ label {
         display: none;
     }
 
-
+    .result-score h1 {
+        font-size: 90px;
+    }
+    .card-baner-score{
+        margin: 30px;
+        margin-bottom: 10px;
+    }
+    .emoticon-score {
+        width: 180px; 
+        height: 150px;
+    }
+    .result-score{
+        margin-top: 20px;
+        margin-bottom: -30px;
+    }
 
 }
