@@ -1,5 +1,6 @@
 import 'regenerator-runtime';
 import '../styles/style.css';
+import '../styles/loader.css';
 import App from './views/app';
 
 const app = new App({

@@ -41,6 +41,10 @@ const cardNotYetHistoryScore = () => `
 </div>
 `;
 
+const loadPage = () => `<div class="d-flex justify-content-center" style="width: 100%">
+<div class="lds-ellipsis"><div></div><div></div><div></div><div></div></div>
+</div>`;
+
 export {
-  cardSoal, cardTemplateAnswers, cardHistoryScore, cardNotYetHistoryScore,
+  cardSoal, cardTemplateAnswers, cardHistoryScore, cardNotYetHistoryScore, loadPage,
 };
