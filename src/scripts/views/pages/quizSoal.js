@@ -3,6 +3,7 @@ import {
   formatTimeLeft, innerElement, redirect, removeClassElement,
 } from '../../utils/functions';
 import soalQuiz from '../../utils/soalQuiz';
+import { cardSoal, cardTemplateAnswers } from '../templates/template';
 
 const QuizSoal = {
   async render() {
@@ -18,48 +19,19 @@ const QuizSoal = {
                     </div>
                     <div class="col-md-8">
                         <div class="card mt-5 border-0">
+                            <div class="card-body" id="card_soal">
+                            </div>
+                            
                             <div class="card-body">
-                                <div id="nomer_soal"> kuis no 1</div>
-                                <div class="card-body" style="background:  #00B6A6;">Ini soal</div>
-                                <div class="row">
-                                    <div class="col-lg-6">
-                                        <div class="card m-2" id="answer">
-                                            <div class="card-body">
-                                                This is some text within a card body.
-                                            </div>
-                                        </div>
-                                    </div>
-                                    <div class="col-lg-6">
-                                        <div class="card m-2" id="answer">
-                                            <div class="card-body">
-                                                This is some text within a card body.
-                                            </div>
-                                        </div>
-                                    </div>
+                                <div class="row" id="answers"></div>
+                            </div>
+
+                            <div class="card-body d-flex justify-content-between mt-3">
+                                <div>
+                                    <div class="card rounded-5 bg-warning text-center justify-content-center ms-3"
+                                    style="width: 3rem; height: 3rem;" id="time">0</div>
                                 </div>
-                                <div class="row">
-                                    <div class="col-lg-6">
-                                        <div class="card m-2" id="answer">
-                                            <div class="card-body">
-                                                This is some text within a card body.
-                                            </div>
-                                        </div>
-                                    </div>
-                                    <div class="col-lg-6">
-                                        <div class="card m-2" id="answer">
-                                            <div class="card-body">
-                                                This is some text within a card body.
-                                            </div>
-                                        </div>
-                                    </div>
-                                </div>
-                                <div class="d-flex justify-content-between mt-3">
-                                    <div>
-                                        <div class="card rounded-5 bg-warning text-center justify-content-center ms-3"
-                                            style="width: 3rem; height: 3rem;" id="time">0</div>
-                                    </div>
-                                    <button class="btn me-4" id="next-btn">selanjutnya</button>
-                                </div>
+                                <button class="btn me-4" id="next-btn">selanjutnya</button>
                             </div>
                         </div>
                     </div>
@@ -70,34 +42,32 @@ const QuizSoal = {
          `;
   },
 
+  async getSoal(array) {
+
+  },
+
   async afterRender() {
+    // const notifikasi = new Audio('./music/quiz.mp3');
+    const cardquestion = document.getElementById('card_soal');
+    const cardanswers = document.getElementById('answers');
     const TIME_LIMIT = 10;
-    let timePassed = 0;
-    let timeLeft = TIME_LIMIT;
+    const timePassed = 0;
+    const timeLeft = TIME_LIMIT;
+    let runningQuestion = 0;
 
-    removeClassElement('.modal-backdrop ', 'show');
-    removeClassElement('.fade', 'modal-backdrop');
-    removeClassElement('.fade', 'fade');
-    const notifikasi = new Audio('./music/quiz.mp3');
-    const dataSoal = await soalQuiz.init();
-    notifikasi.play();
-    if (dataSoal !== null) {
-      console.log(dataSoal);
+    const soalLocal = JSON.parse(localStorage.getItem('soal')).results;
+    runningQuestion = Math.floor(Math.random() * soalLocal.length);
 
-      const timerInterval = setInterval(() => {
-        timePassed = timePassed += 1;
-        timeLeft = TIME_LIMIT - timePassed;
+    const showsoal = soalLocal[runningQuestion];
+    const answers = showsoal.incorrect_answers;
+    answers.splice((answers.length + 1) * Math.random() | 0, 0, showsoal.correct_answer);
+    console.log(showsoal);
+    console.log(answers);
+    cardquestion.innerHTML = cardSoal(showsoal);
 
-        innerElement('#time', formatTimeLeft(timeLeft));
-        if (timeLeft === 0) {
-          flashMessage('error', 'Waktu habis', 'Perhatian');
-          notifikasi.pause();
-          clearInterval(timerInterval);
-        }
-      }, 1000);
-    } else {
-      redirect('#/dashboard');
-    }
+    answers.forEach((val, key) => {
+      cardanswers.innerHTML += cardTemplateAnswers(val);
+    });
   },
 };
 

@@ -53,18 +53,18 @@ p a:hover {
     background-color: var(--primary);
 }
 
-#answer {
+/* #answer {
     background: #fff;
     color: #222222;
     font-weight: 500;
-    border: 1px solid #222;
+    border: 1px solid #eee;
     padding: 10px;
     margin: 10px 0;
     text-align: left;
     cursor: pointer;
     border-radius: 5px;
     transition: all 0.3s;
-}
+} */
 
 #answer:hover {
     background: #222;
@@ -85,6 +85,21 @@ p a:hover {
 #next-btn:hover {
     background: #0e504b;
     color: #fff;
+}
+
+label {
+    width: 100%;
+}
+
+
+.card-input:hover {
+    cursor: pointer;
+}
+
+.card-input-element:checked+.card-input {
+    box-shadow: 0 0 2px 1px var(--more-dark-primary);
+    color: var(--more-dark-primary);
+    border-radius: 2px;
 }
 
 

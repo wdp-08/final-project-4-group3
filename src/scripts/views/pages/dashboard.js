@@ -154,6 +154,7 @@ const Dashboard = {
     const result = await questionSwal('Ready to start QuizMee?');
     if (result) {
       const soal = await FetchDataSoalQuiz.fetchSoal(category);
+      localStorage.setItem('soal', JSON.stringify(soal));
       await soalQuiz.initsoal(soal);
       window.location.href = '#/quiz';
     }
