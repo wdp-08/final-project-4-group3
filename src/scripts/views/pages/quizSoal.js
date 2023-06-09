@@ -1,11 +1,13 @@
-import { getUserInfo, redirect, removeClassElement } from '../../utils/functions';
+import {
+  getUserInfo, redirect, removeClassElement,
+} from '../../utils/functions';
 import soalQuiz from '../../utils/soalQuiz';
 
 const QuizSoal = {
   async render() {
     return `
-    <div style="background-image: url('./images/cover.jpg'); width: 100%; height: 100vh;">
-        <div class="container pt-5" >
+    <div style="background-image: url('./images/cover.jpg'); width: 100%; min-height: 100vh;">
+        <div class="container py-5" >
             <div class="card">
                 <div class="row">
                     <div class="col-md-3" id="gambar">
@@ -13,8 +15,8 @@ const QuizSoal = {
                             <img class="ms-5" src="../images/people.jpg" alt="">
                         </div>
                     </div>
-                    <div class="col-md-8">
-                        <div class="card mt-5 border-0">
+                    <div class="col-md-8 py-0 py-lg-3">
+                        <div class="card border-0">
                             <div class="card-body" id="card_soal">
                             </div>
                             
@@ -35,6 +37,10 @@ const QuizSoal = {
             </div>
         </div>
     </div>
+    <audio id="myAudio" autoplay=true loop=false>
+        <source src="./music/quiz.mp3" type="audio/mpeg">
+        Your browser does not support the audio element.
+    </audio>
          `;
   },
 
@@ -44,19 +50,14 @@ const QuizSoal = {
     if (!userAccess || !getCat) {
       redirect('#/');
     } else {
+      const modalbackdrop = document.querySelector('.modal-backdrop');
+      if (modalbackdrop) {
+        removeClassElement('.fade', 'show');
+        removeClassElement('.fade', 'modal-backdrop');
+        removeClassElement('.fade', 'fade');
+      }
       await soalQuiz.init(getCat);
-      removeClassElement('.fade', 'show');
-      removeClassElement('.fade', 'modal-backdrop');
-      removeClassElement('.fade', 'fade');
     }
-    // console.log(allSoal);
-    // const notifikasi = new Audio('./music/quiz.mp3');
-
-    // if (timeLeft <= 0) {
-    //   const result = await questionSwal('Waktu habis. Lanjut?');
-    //   clearInterval(timeInterval);
-    //   if (result) await this._renderTime();
-    // }
   },
 };
 
