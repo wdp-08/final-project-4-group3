@@ -1,4 +1,4 @@
-import { getUserInfo, redirect } from '../../utils/functions';
+import { getUserInfo, innerElement, redirect } from '../../utils/functions';
 import ScoreInit from '../../utils/scoreInit';
 
 const Score = {
@@ -20,7 +20,7 @@ const Score = {
                                 <h1 id="score-user">0</h1>
                                 <!-- <div style="border-bottom: 0.4rem solid #00B6A6;  width: 18rem; margin: auto;"></div> -->
                                 <div class="container d-flex justify-content-center">
-                                    <p>Tingkatkan semangat ya <span>Nama</span> !</p>
+                                    <p>Tingkatkan semangat ya <span id="namaUser">Nama</span> !</p>
                                 </div>
                             </div>
                         </div>
@@ -42,6 +42,7 @@ const Score = {
       redirect('#/');
     } else {
       localStorage.removeItem('cat');
+      innerElement('#namaUser', userAccess.nama_user);
       await ScoreInit.init();
     }
   },
