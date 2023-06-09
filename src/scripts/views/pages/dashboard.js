@@ -5,7 +5,6 @@ import {
 } from '../../utils/functions';
 import soalQuiz from '../../utils/soalQuiz';
 
-let category = null;
 const Dashboard = {
   async render() {
     return `
@@ -22,7 +21,7 @@ const Dashboard = {
                         <div class="col-lg-5 mb-3">
                             <div class="card shadow-me border border-0 mb-4">
                                 <div class="card-body text-center">
-                                    <img src="./images/profile.png" class="card-img-top rounded rounded-circle" alt="profile" style="max-width: 50%; height: auto" id="url_foto" />
+                                    <img src="" class="card-img-top rounded rounded-circle" alt="profile" style="max-width: 50%; height: auto" id="url_foto" />
                                     <h5 class="card-title text-capitalize my-3 fw-bold" id="nama_user">Admin</h5>
                                     <p class="card-text" id="email">admin@gmail.com</p>
                                 </div>
@@ -153,9 +152,6 @@ const Dashboard = {
   async _startQuiz() {
     const result = await questionSwal('Ready to start QuizMee?');
     if (result) {
-      const soal = await FetchDataSoalQuiz.fetchSoal(category);
-      localStorage.setItem('soal', JSON.stringify(soal));
-      await soalQuiz.initsoal(soal);
       window.location.href = '#/quiz';
     }
   },
@@ -163,7 +159,7 @@ const Dashboard = {
   async _chooseCategory(e) {
     e.preventDefault();
     addClassElement('#btn-start-quiz', 'disabled');
-    category = e.target.value;
+    localStorage.setItem('cat', JSON.stringify({ cat_quiz: e.target.value }));
     removeClassElement('#btn-start-quiz', 'disabled');
   },
 

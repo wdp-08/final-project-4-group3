@@ -1,8 +1,8 @@
-@import url('https://fonts.googleapis.com/css2?family=Basic&family=Poppins&display=swap');
+@import url('https://fonts.googleapis.com/css2?family=Basic&family=Poppins:wght@500&display=swap');
 
 @font-face {
     font-family: 'Poppins';
-    src: url('https://fonts.googleapis.com/css2?family=Basic&family=Poppins&display=swap');
+    src: url('https://fonts.googleapis.com/css2?family=Basic&family=Poppins:wght@500&display=swap');
 }
 
 :root {
@@ -51,4 +51,64 @@ p a:hover {
 
 .bg-green-me{
     background-color: var(--primary);
+}
+
+#answer:hover {
+    background: #222;
+    color: #fff;
+}
+
+#next-btn {
+    background: #00B6A6;
+    color: #fff;
+    font-weight: 500;
+    width: 150;
+    border: 0;
+    padding: 10px;
+    border-radius: 4px;
+    cursor: pointer;
+    display: block;
+}
+#next-btn:hover {
+    background: #0e504b;
+    color: #fff;
+}
+
+label {
+    width: 100%;
+}
+
+
+.card-input:hover {
+    cursor: pointer;
+}
+
+.card-input-element:checked+.card-input {
+    box-shadow: 0 0 2px 1px var(--more-dark-primary);
+    color: var(--more-dark-primary);
+    border-radius: 2px;
+}
+
+
+/* mobile */
+@media (max-width: 575.98px) {
+    #gambar {
+        display: none;
+    }
+
+}
+
+/* mobile 2 */
+@media (max-width: 767.98px) {
+
+    /* .card {
+        height: 20rem;
+        width: 100%;
+    } */
+    #gambar {
+        display: none;
+    }
+
+
+
 }
