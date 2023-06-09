@@ -105,6 +105,7 @@ const Dashboard = {
     if (!userAccess) {
       redirect('#/');
     } else {
+      localStorage.removeItem('hasil_score');
       const urlFoto = document.querySelector('#url_foto');
       urlFoto.setAttribute('src', userAccess.url_foto);
       innerElement('#nama_user', userAccess.nama_user);
