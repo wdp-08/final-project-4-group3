@@ -62,9 +62,9 @@ const Dashboard = {
             <label for="kategori-quiz" class="form-label">Choose the category quiz</label>
             <select class="form-select" id="kategori-quiz" name="kategori-quiz" aria-label="Default select example">
                 <option selected disabled>Choose Category</option>
-                <option value="9">General Knowledge</option>
-                <option value="18">Science: Computers</option>
-                <option value="27">Animals</option>
+                <option value="9" data-name="General Knowledge">General Knowledge</option>
+                <option value="18" data-name="Science: Computers">Science: Computers</option>
+                <option value="27" data-name="Animals">Animals</option>
             </select>
         </div>
       </div>
@@ -123,7 +123,7 @@ const Dashboard = {
       listhistoryscore.innerHTML = loadPage();
       const riwayatScore = await ScoreInit.getScoreByEmail(userAccess.email);
       if (riwayatScore !== null) {
-          listhistoryscore.innerHTML = '';
+        listhistoryscore.innerHTML = '';
         riwayatScore.forEach((doc) => {
           const resultData = doc.data();
           resultData.id = doc.id;

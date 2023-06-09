@@ -1,6 +1,6 @@
 /* eslint-disable no-bitwise */
 import FetchDataSoalQuiz from '../data/soal-quiz';
-import { cardSoal, cardTemplateAnswers } from '../views/templates/template';
+import { cardSoal, cardTemplateAnswers, loadPage } from '../views/templates/template';
 import { flashMessage, getUserInfo, redirect } from './functions';
 
 let timeLeft = 11;
@@ -11,6 +11,15 @@ let lastQuestion = 0;
 let scoreUser = 0;
 let isPaused = false;
 let correctAnswer = null;
+
+function audioplay() {
+  const notifikasi = document.querySelector('#myAudio');
+  notifikasi.play();
+}
+function audiostop() {
+  const notifikasi = document.querySelector('#myAudio');
+  notifikasi.pause();
+}
 
 function _renderTime() {
   if (!isPaused) {
@@ -35,6 +44,7 @@ function _renderTime() {
     } else {
       clearInterval(timeInterval);
       flashMessage('success', 'Selesai', `Your score ${scoreUser}`);
+      audiostop();
       const userInfo = getUserInfo();
       const date = new Date();
       const hasilQuis = {
@@ -59,6 +69,7 @@ function _renderSoal(antrianQuestion) {
   const cardquestion = document.getElementById('card_soal');
   const cardanswers = document.getElementById('answers');
   cardanswers.innerHTML = '';
+  cardquestion.innerHTML = '';
   const showsoal = allSoal[antrianQuestion];
   const answers = showsoal.incorrect_answers;
   correctAnswer = showsoal.correct_answer;
@@ -75,6 +86,7 @@ const soalQuiz = {
   },
 
   async startQuiz(cat) {
+    // notifikasi.play();
     allSoal = await this._logicQuiz(cat);
     lastQuestion = allSoal.length - 1;
     _renderTime();
@@ -83,6 +95,9 @@ const soalQuiz = {
   },
 
   async _logicQuiz(cat) {
+    const cardanswers = document.getElementById('answers');
+    cardanswers.innerHTML = loadPage();
+    audioplay();
     const soal = await FetchDataSoalQuiz.fetchSoal(cat);
     return soal.results;
   },
