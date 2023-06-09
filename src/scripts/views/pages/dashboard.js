@@ -3,7 +3,7 @@ import {
   getUserInfo, innerElement, questionSwal, redirect, removeClassElement,
 } from '../../utils/functions';
 import ScoreInit from '../../utils/scoreInit';
-import { cardHistoryScore, cardNotYetHistoryScore } from '../templates/template';
+import { cardHistoryScore, cardNotYetHistoryScore, loadPage } from '../templates/template';
 
 const Dashboard = {
   async render() {
@@ -41,6 +41,7 @@ const Dashboard = {
                             <div id="list-history-score">
                                 
                             </div>
+                            
                         </div>
                     </div>
                 </div>
@@ -118,9 +119,11 @@ const Dashboard = {
       btnStartQuiz.addEventListener('click', this._startQuiz);
       kategoriQuiz.addEventListener('change', this._chooseCategory);
 
-      const riwayatScore = await ScoreInit.getScoreByEmail(userAccess.email);
       const listhistoryscore = document.getElementById('list-history-score');
+      listhistoryscore.innerHTML = loadPage();
+      const riwayatScore = await ScoreInit.getScoreByEmail(userAccess.email);
       if (riwayatScore !== null) {
+          listhistoryscore.innerHTML = '';
         riwayatScore.forEach((doc) => {
           const resultData = doc.data();
           resultData.id = doc.id;
