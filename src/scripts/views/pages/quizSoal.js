@@ -1,9 +1,5 @@
-import {
-  flashMessage,
-  formatTimeLeft, innerElement, redirect, removeClassElement,
-} from '../../utils/functions';
+import { getUserInfo, redirect, removeClassElement } from '../../utils/functions';
 import soalQuiz from '../../utils/soalQuiz';
-import { cardSoal, cardTemplateAnswers } from '../templates/template';
 
 const QuizSoal = {
   async render() {
@@ -31,7 +27,7 @@ const QuizSoal = {
                                     <div class="card rounded-5 bg-warning text-center justify-content-center ms-3"
                                     style="width: 3rem; height: 3rem;" id="time">0</div>
                                 </div>
-                                <button class="btn me-4" id="next-btn">selanjutnya</button>
+                                
                             </div>
                         </div>
                     </div>
@@ -42,32 +38,25 @@ const QuizSoal = {
          `;
   },
 
-  async getSoal(array) {
-
-  },
-
   async afterRender() {
+    const userAccess = getUserInfo();
+    const getCat = JSON.parse(localStorage.getItem('cat')).cat_quiz;
+    if (!userAccess || !getCat) {
+      redirect('#/');
+    } else {
+      await soalQuiz.init(getCat);
+      removeClassElement('.fade', 'show');
+      removeClassElement('.fade', 'modal-backdrop');
+      removeClassElement('.fade', 'fade');
+    }
+    // console.log(allSoal);
     // const notifikasi = new Audio('./music/quiz.mp3');
-    const cardquestion = document.getElementById('card_soal');
-    const cardanswers = document.getElementById('answers');
-    const TIME_LIMIT = 10;
-    const timePassed = 0;
-    const timeLeft = TIME_LIMIT;
-    let runningQuestion = 0;
 
-    const soalLocal = JSON.parse(localStorage.getItem('soal')).results;
-    runningQuestion = Math.floor(Math.random() * soalLocal.length);
-
-    const showsoal = soalLocal[runningQuestion];
-    const answers = showsoal.incorrect_answers;
-    answers.splice((answers.length + 1) * Math.random() | 0, 0, showsoal.correct_answer);
-    console.log(showsoal);
-    console.log(answers);
-    cardquestion.innerHTML = cardSoal(showsoal);
-
-    answers.forEach((val, key) => {
-      cardanswers.innerHTML += cardTemplateAnswers(val);
-    });
+    // if (timeLeft <= 0) {
+    //   const result = await questionSwal('Waktu habis. Lanjut?');
+    //   clearInterval(timeInterval);
+    //   if (result) await this._renderTime();
+    // }
   },
 };
 
