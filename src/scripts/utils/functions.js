@@ -62,7 +62,7 @@ function formatDate(date) {
     day: 'numeric',
   };
   const dateTemp = new Date(date);
-  return dateTemp.toLocaleDateString('id-ID', options);
+  return dateTemp.toLocaleDateString('en-US', options);
 }
 
 function addClassElement(element, className) {
