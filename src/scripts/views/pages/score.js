@@ -5,9 +5,9 @@ const Score = {
   async render() {
     return `
     <div style="background-image: url('./images/cover.jpg'); width: 100%; min-height: 100vh;">
-        <section class="container-md">
+        <section class="container">
             <div class="d-flex justify-content-center py-5">
-                <div class="card text-center" style="width: 803px; height: 584px;">
+                <div class="card text-center">
                     <div class="card card-baner-score" >
                         <h1 style="margin: auto; color: #ffff; font-weight: bold;">YOUR SCORE HERE !</h1>
                     </div>
@@ -20,13 +20,13 @@ const Score = {
                                 <h1 id="score-user">0</h1>
                                 <!-- <div style="border-bottom: 0.4rem solid #00B6A6;  width: 18rem; margin: auto;"></div> -->
                                 <div class="container d-flex justify-content-center">
-                                    <p>Tingkatkan semangat ya <span id="namaUser">Nama</span> !</p>
+                                    <p>Boost your spirits <span id="namaUser">Nama</span> !</p>
                                 </div>
                             </div>
                         </div>
                     </div>
-                    <div class="gap-2 ">
-                        <a href="#/dashboard" class="btn btn-score " type="button">Beranda</a>
+                    <div class="py-4">
+                        <a href="#/dashboard" class="btn btn-score " type="button">Home</a>
                     </div>
                 </div>
             </div>
