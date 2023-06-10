@@ -123,11 +123,9 @@ label {
     border-radius: 10px;
     width: 163px;
     height: 45px;
-    margin: 30px;
     font-size: 20px;
     background-color: #ffff; 
     color: #00B6A6;
-    margin-top: 50px;
 }
 
 .btn-score:hover {
@@ -141,6 +139,13 @@ label {
     width: 20px;
     height: 20px;
     border-radius: 50%;
+}
+
+.nav-link.active{
+    background-color: var(--primary) !important;
+}
+.nav-link, .nav-link:hover{
+    color: var(--primary);
 }
 /* akhie score */
 

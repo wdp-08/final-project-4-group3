@@ -1,5 +1,5 @@
 import {
-  getFirestore, setDoc, doc, query, collection, where, getDocs,
+  getFirestore, setDoc, doc, query, collection, where, getDocs, orderBy, limit,
 } from 'firebase/firestore';
 import { customAlphabet } from 'nanoid';
 import {
@@ -35,8 +35,13 @@ const ScoreInit = {
     }
   },
 
-  async getScoreByEmail(email) {
-    const q = query(collection(db, 'scores'), where('email', '==', email));
+  async getScoreByEmail(email = null) {
+    let q = null;
+    if (email) {
+      q = query(collection(db, 'scores'), where('email', '==', email));
+    } else {
+      q = query(collection(db, 'scores'), orderBy('score', 'desc'));
+    }
     const docSnap = await getDocs(q);
     if (docSnap.size > 0) {
       return docSnap;

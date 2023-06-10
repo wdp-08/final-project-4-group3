@@ -31,6 +31,19 @@ const cardHistoryScore = (data) => `
     </div>
 </div>
 `;
+const cardHistoryScoreAll = (data) => `
+<div class="card mt-2 shadow-me border border-0">
+    <div class="card-body">
+        <div class="d-flex justify-content-between align-items-center px-2">
+            <div>
+                <span class="fs-6 d-block w-full">${formatDate(data.tanggal)}</span>
+                <span class="fs-6">${data.email}</span>
+            </div>
+            <span class="fw-bold fs-3 text-center">${data.score.toString()}</span>
+        </div>
+    </div>
+</div>
+`;
 const cardNotYetHistoryScore = () => `
 <div class="card mt-2 shadow-me border border-0">
     <div class="card-body">
@@ -50,5 +63,5 @@ const circleTrueFalse = (className) => `
 `;
 
 export {
-  cardSoal, cardTemplateAnswers, cardHistoryScore, cardNotYetHistoryScore, loadPage, circleTrueFalse,
+  cardSoal, cardTemplateAnswers, cardHistoryScore, cardNotYetHistoryScore, loadPage, circleTrueFalse, cardHistoryScoreAll,
 };

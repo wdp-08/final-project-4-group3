@@ -9,8 +9,7 @@
         font-size: 23px;
     }
     .emoticon-score {
-        width: 140px; 
-        height: 110px;
+        width: 100%; 
     }
     .result-score p {
         font-size: 15px;
@@ -19,7 +18,7 @@
         width: 133px;
         height: 35px;
         font-size: 15px;
-        margin-top: 50px;
+        /* margin-top: 50px; */
     }
 
 }

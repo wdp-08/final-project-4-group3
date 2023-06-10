@@ -3,7 +3,9 @@ import {
   getUserInfo, innerElement, questionSwal, redirect, removeClassElement,
 } from '../../utils/functions';
 import ScoreInit from '../../utils/scoreInit';
-import { cardHistoryScore, cardNotYetHistoryScore, loadPage } from '../templates/template';
+import {
+  cardHistoryScore, cardHistoryScoreAll, cardNotYetHistoryScore, loadPage,
+} from '../templates/template';
 
 const Dashboard = {
   async render() {
@@ -35,13 +37,37 @@ const Dashboard = {
 
 
                         <div class="col-lg-7">
-                            <div class="card text-center shadow-me bg-green-me border border-0 p-2">
-                                <h1 class="text-white fw-bold">History Score QuizzMee</h1>
+
+                          <ul class="nav nav-pills mb-3" id="pills-tab" role="tablist">
+                            <li class="nav-item" role="presentation">
+                              <button class="nav-link active" id="pills-home-tab" data-bs-toggle="pill" data-bs-target="#pills-home" type="button" role="tab" aria-controls="pills-home" aria-selected="true">Your Score</button>
+                            </li>
+                            <li class="nav-item" role="presentation">
+                              <button class="nav-link" id="pills-profile-tab" data-bs-toggle="pill" data-bs-target="#pills-profile" type="button" role="tab" aria-controls="pills-profile" aria-selected="false">Other User Score </button>
+                            </li>
+                          </ul>
+                          <div class="tab-content" id="pills-tabContent">
+                            <div class="tab-pane fade show active" id="pills-home" role="tabpanel" aria-labelledby="pills-home-tab" tabindex="0">
+                              <div class="card text-center shadow-me bg-green-me border border-0 p-2">
+                                  <h1 class="text-white fw-bold">Your History Score</h1>
+                              </div>
+                              <div id="list-history-score">
+                                  
+                              </div>
                             </div>
-                            <div id="list-history-score">
-                                
+
+                            <div class="tab-pane fade" id="pills-profile" role="tabpanel" aria-labelledby="pills-profile-tab" tabindex="0">
+                              <div class="card text-center shadow-me bg-green-me border border-0 p-2">
+                                <h1 class="text-white fw-bold">Other User Score</h1>
+                              </div>
+                              <div id="list-history-score-allUser">
+                                  
+                              </div>
+                             <!-- <div class="d-flex justify-content-center">
+                                <button id="load-allscore" class="btn text-primary-me">load more</button>
+                              </div> -->
                             </div>
-                            
+                          </div>
                         </div>
                     </div>
                 </div>
@@ -120,14 +146,24 @@ const Dashboard = {
       kategoriQuiz.addEventListener('change', this._chooseCategory);
 
       const listhistoryscore = document.getElementById('list-history-score');
+      const listhistoryscoreall = document.getElementById('list-history-score-allUser');
       listhistoryscore.innerHTML = loadPage();
+      listhistoryscoreall.innerHTML = loadPage();
       const riwayatScore = await ScoreInit.getScoreByEmail(userAccess.email);
+      const riwayatScoreAll = await ScoreInit.getScoreByEmail();
       if (riwayatScore !== null) {
         listhistoryscore.innerHTML = '';
         riwayatScore.forEach((doc) => {
           const resultData = doc.data();
           resultData.id = doc.id;
           listhistoryscore.innerHTML += cardHistoryScore(resultData);
+        });
+        listhistoryscoreall.innerHTML = '';
+        riwayatScoreAll.forEach((doc) => {
+          const resultData = doc.data();
+          resultData.id = doc.id;
+          console.log(resultData);
+          listhistoryscoreall.innerHTML += cardHistoryScoreAll(resultData);
         });
       } else {
         listhistoryscore.innerHTML += cardNotYetHistoryScore();
