@@ -1,0 +1,54 @@
+
+/* mobile */
+@media (max-width: 575.98px) {
+    #gambar {
+        display: none;
+    }
+    .card-baner-score h1{
+        margin: 15px;
+        font-size: 23px;
+    }
+    .emoticon-score {
+        width: 140px; 
+        height: 110px;
+    }
+    .result-score p {
+        font-size: 15px;
+    }
+    .btn-score {
+        width: 133px;
+        height: 35px;
+        font-size: 15px;
+        margin-top: 50px;
+    }
+
+}
+
+/* mobile 2 */
+@media (max-width: 767.98px) {
+
+    /* .card {
+        height: 20rem;
+        width: 100%;
+    } */
+    #gambar {
+        display: none;
+    }
+
+    .result-score h1 {
+        font-size: 90px;
+    }
+    .card-baner-score{
+        margin: 30px;
+        margin-bottom: 10px;
+    }
+    .emoticon-score {
+        width: 180px; 
+        height: 150px;
+    }
+    .result-score{
+        margin-top: 20px;
+        margin-bottom: -30px;
+    }
+
+}

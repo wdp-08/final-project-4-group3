@@ -14,7 +14,7 @@ const Score = {
                     <div class="container text-center" id="this-score">
                         <div class="row align-items-center" style="padding-left: 30px; padding-right: 30px;padding-top: 20PX;">
                             <div class="col">
-                                <img class="emoticon-score" src="./images/emoticon2.png" alt="">
+                                <img class="emoticon-score" src="./images/goodjob.gif" alt="">
                             </div>
                             <div class="col result-score text-center ">
                                 <h1 id="score-user">0</h1>
@@ -36,7 +36,6 @@ const Score = {
   },
 
   async afterRender() {
-    // Fungsi ini akan dipanggil setelah render()
     const userAccess = getUserInfo();
     if (!userAccess) {
       redirect('#/');

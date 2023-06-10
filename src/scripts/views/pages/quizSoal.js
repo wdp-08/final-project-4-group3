@@ -11,8 +11,8 @@ const QuizSoal = {
             <div class="card">
                 <div class="row">
                     <div class="col-md-3" id="gambar">
-                        <div class="card mt-5 border-0">
-                            <img class="ms-5" src="../images/people.jpg" alt="">
+                        <div class="card mt-5 border-0 d-flex align-items-center">
+                            <img class="ms-5" src="../images/chikentime.gif" alt="chiken time" width="100%">
                         </div>
                     </div>
                     <div class="col-md-8 py-0 py-lg-3">
@@ -29,7 +29,8 @@ const QuizSoal = {
                                     <div class="card rounded-5 bg-warning text-center justify-content-center ms-3"
                                     style="width: 3rem; height: 3rem;" id="time">0</div>
                                 </div>
-                                
+                                <div id="circle-true" class="d-flex">
+                                </div>
                             </div>
                         </div>
                     </div>
@@ -46,8 +47,11 @@ const QuizSoal = {
 
   async afterRender() {
     const userAccess = getUserInfo();
-    const getCat = JSON.parse(localStorage.getItem('cat')).cat_quiz;
-    if (!userAccess || !getCat) {
+    const getCat = (localStorage.getItem('cat')) ? JSON.parse(localStorage.getItem('cat')).cat_quiz : null;
+    if (!getCat) {
+      redirect('#/dashboard');
+    }
+    if (!userAccess) {
       redirect('#/');
     } else {
       const modalbackdrop = document.querySelector('.modal-backdrop');
@@ -55,6 +59,9 @@ const QuizSoal = {
         removeClassElement('.fade', 'show');
         removeClassElement('.fade', 'modal-backdrop');
         removeClassElement('.fade', 'fade');
+        const bodyModal = document.querySelector('body');
+        bodyModal.removeAttribute('style');
+        bodyModal.removeAttribute('class');
       }
       await soalQuiz.init(getCat);
     }

@@ -24,8 +24,8 @@ const cardTemplateAnswers = (data) => `
 const cardHistoryScore = (data) => `
 <div class="card mt-2 shadow-me border border-0">
     <div class="card-body">
-        <div class="d-flex justify-content-between align-items-center px-4">
-            <span class="fs-5">${formatDate(data.tanggal)}</span>
+        <div class="d-flex justify-content-between align-items-center px-2">
+            <span class="fs-6">${formatDate(data.tanggal)}</span>
             <span class="fw-bold fs-3 text-center">${data.score.toString()}</span>
         </div>
     </div>
@@ -34,7 +34,7 @@ const cardHistoryScore = (data) => `
 const cardNotYetHistoryScore = () => `
 <div class="card mt-2 shadow-me border border-0">
     <div class="card-body">
-        <div class="d-flex justify-content-between align-items-center px-4">
+        <div class="d-flex justify-content-center align-items-center px-2">
             <span class="fw-bold fs-3 text-center">Tidak Ada History</span>
         </div>
     </div>
@@ -45,6 +45,10 @@ const loadPage = () => `<div class="d-flex justify-content-center" style="width:
 <div class="lds-ellipsis"><div></div><div></div><div></div><div></div></div>
 </div>`;
 
+const circleTrueFalse = (className) => `
+<span class="circle-true-false me-1 ${className}"></span>
+`;
+
 export {
-  cardSoal, cardTemplateAnswers, cardHistoryScore, cardNotYetHistoryScore, loadPage,
+  cardSoal, cardTemplateAnswers, cardHistoryScore, cardNotYetHistoryScore, loadPage, circleTrueFalse,
 };
