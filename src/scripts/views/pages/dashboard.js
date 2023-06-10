@@ -43,7 +43,7 @@ const Dashboard = {
                               <button class="nav-link active" id="pills-home-tab" data-bs-toggle="pill" data-bs-target="#pills-home" type="button" role="tab" aria-controls="pills-home" aria-selected="true">Your Score</button>
                             </li>
                             <li class="nav-item" role="presentation">
-                              <button class="nav-link" id="pills-profile-tab" data-bs-toggle="pill" data-bs-target="#pills-profile" type="button" role="tab" aria-controls="pills-profile" aria-selected="false">Other User Score </button>
+                              <button class="nav-link" id="pills-profile-tab" data-bs-toggle="pill" data-bs-target="#pills-profile" type="button" role="tab" aria-controls="pills-profile" aria-selected="false">10 Top Score</button>
                             </li>
                           </ul>
                           <div class="tab-content" id="pills-tabContent">
@@ -58,7 +58,7 @@ const Dashboard = {
 
                             <div class="tab-pane fade" id="pills-profile" role="tabpanel" aria-labelledby="pills-profile-tab" tabindex="0">
                               <div class="card text-center shadow-me bg-green-me border border-0 p-2">
-                                <h1 class="text-white fw-bold">Other User Score</h1>
+                                <h1 class="text-white fw-bold">Users 10 Top Score</h1>
                               </div>
                               <div id="list-history-score-allUser">
                                   

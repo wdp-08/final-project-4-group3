@@ -26,7 +26,7 @@ const cardHistoryScore = (data) => `
     <div class="card-body">
         <div class="d-flex justify-content-between align-items-center px-2">
             <span class="fs-6">${formatDate(data.tanggal)}</span>
-            <span class="fw-bold fs-3 text-center">${data.score.toString()}</span>
+            <span class="fw-bold fs-3 text-center text-primary-me">${data.score.toString()}</span>
         </div>
     </div>
 </div>
@@ -36,10 +36,10 @@ const cardHistoryScoreAll = (data) => `
     <div class="card-body">
         <div class="d-flex justify-content-between align-items-center px-2">
             <div>
-                <span class="fs-6 d-block w-full">${formatDate(data.tanggal)}</span>
+                <span class="fs-6 d-block w-full text-secondary">${formatDate(data.tanggal)}</span>
                 <span class="fs-6">${data.email}</span>
             </div>
-            <span class="fw-bold fs-3 text-center">${data.score.toString()}</span>
+            <span class="fw-bold fs-3 text-center text-primary-me">${data.score.toString()}</span>
         </div>
     </div>
 </div>

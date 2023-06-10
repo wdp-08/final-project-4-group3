@@ -40,7 +40,7 @@ const ScoreInit = {
     if (email) {
       q = query(collection(db, 'scores'), where('email', '==', email));
     } else {
-      q = query(collection(db, 'scores'), orderBy('score', 'desc'));
+      q = query(collection(db, 'scores'), orderBy('score', 'desc'), limit(10));
     }
     const docSnap = await getDocs(q);
     if (docSnap.size > 0) {
