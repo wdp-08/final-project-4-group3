@@ -16,3 +16,4 @@
 6. so, you can see projek on http://localhost:9000/
 
 ## Production
+https://quizz-mee.netlify.app/
