@@ -1,6 +1,8 @@
 /* eslint-disable no-bitwise */
 import FetchDataSoalQuiz from '../data/soal-quiz';
-import { cardSoal, cardTemplateAnswers, loadPage } from '../views/templates/template';
+import {
+  cardSoal, cardTemplateAnswers, circleTrueFalse, loadPage,
+} from '../views/templates/template';
 import { flashMessage, getUserInfo, redirect } from './functions';
 
 let timeLeft = 11;
@@ -11,6 +13,42 @@ let lastQuestion = 0;
 let scoreUser = 0;
 let isPaused = false;
 let correctAnswer = null;
+
+const elem = document.documentElement;
+let circletrue = null;
+
+/* View in fullscreen */
+function openFullscreen() {
+  if (elem.requestFullscreen) {
+    elem.requestFullscreen();
+  } else if (elem.webkitRequestFullscreen) { /* Safari */
+    elem.webkitRequestFullscreen();
+  } else if (elem.msRequestFullscreen) { /* IE11 */
+    elem.msRequestFullscreen();
+  }
+}
+
+function resetGamePrevious() {
+  timeLeft = 11;
+  timeInterval = null;
+  allSoal = null;
+  runningQuestion = 0;
+  lastQuestion = 0;
+  scoreUser = 0;
+  isPaused = false;
+  correctAnswer = null;
+}
+
+/* Close fullscreen */
+function closeFullscreen() {
+  if (document.exitFullscreen) {
+    document.exitFullscreen();
+  } else if (document.webkitExitFullscreen) { /* Safari */
+    document.webkitExitFullscreen();
+  } else if (document.msExitFullscreen) { /* IE11 */
+    document.msExitFullscreen();
+  }
+}
 
 function audioplay() {
   const notifikasi = document.querySelector('#myAudio');
@@ -35,6 +73,8 @@ function _renderTime() {
       _checkAnswerUser(answerUser.value);
       _renderSoal(runningQuestion);
       isPaused = false;
+    } else {
+      circletrue.innerHTML += circleTrueFalse('bg-danger');
     }
 
     if (runningQuestion < lastQuestion) {
@@ -54,6 +94,7 @@ function _renderTime() {
         tanggal: date.toISOString(),
       };
       localStorage.setItem('hasil_score', JSON.stringify(hasilQuis));
+      closeFullscreen();
       redirect('#/score');
     }
   }
@@ -62,6 +103,9 @@ function _renderTime() {
 function _checkAnswerUser(answerUser) {
   if (correctAnswer === answerUser) {
     scoreUser += 10;
+    circletrue.innerHTML += circleTrueFalse('bg-green-me');
+  } else {
+    circletrue.innerHTML += circleTrueFalse('bg-danger');
   }
 }
 
@@ -82,11 +126,14 @@ function _renderSoal(antrianQuestion) {
 
 const soalQuiz = {
   async init(cat) {
+    circletrue = document.getElementById('circle-true');
     await this.startQuiz(cat);
   },
 
   async startQuiz(cat) {
     // notifikasi.play();
+    resetGamePrevious();
+    openFullscreen();
     allSoal = await this._logicQuiz(cat);
     lastQuestion = allSoal.length - 1;
     _renderTime();
