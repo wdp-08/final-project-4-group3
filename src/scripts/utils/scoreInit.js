@@ -35,10 +35,10 @@ const ScoreInit = {
     }
   },
 
-  async getScoreByEmail(email = null) {
+  async getScoreByEmail(idUser = null) {
     let q = null;
-    if (email) {
-      q = query(collection(db, 'scores'), where('email', '==', email));
+    if (idUser) {
+      q = query(collection(db, 'scores'), where('id_user', '==', idUser));
     } else {
       q = query(collection(db, 'scores'), orderBy('score', 'desc'), limit(10));
     }
