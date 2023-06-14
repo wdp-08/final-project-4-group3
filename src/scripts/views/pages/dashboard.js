@@ -132,7 +132,11 @@ const Dashboard = {
     if (!userAccess) {
       redirect('#/');
     } else {
+      if (window.timeInterval) {
+        clearInterval(window.timeInterval);
+      }
       localStorage.removeItem('hasil_score');
+      localStorage.removeItem('cat');
       const urlFoto = document.querySelector('#url_foto');
       urlFoto.setAttribute('src', userAccess.url_foto);
       innerElement('#nama_user', userAccess.nama_user);
@@ -162,11 +166,11 @@ const Dashboard = {
         riwayatScoreAll.forEach((doc) => {
           const resultData = doc.data();
           resultData.id = doc.id;
-          console.log(resultData);
           listhistoryscoreall.innerHTML += cardHistoryScoreAll(resultData);
         });
       } else {
-        listhistoryscore.innerHTML += cardNotYetHistoryScore();
+        listhistoryscore.innerHTML = '';
+        listhistoryscore.innerHTML = cardNotYetHistoryScore();
       }
     }
   },

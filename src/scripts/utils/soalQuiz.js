@@ -139,6 +139,7 @@ const soalQuiz = {
     _renderTime();
     _renderSoal(runningQuestion);
     timeInterval = setInterval(_renderTime, 1000);
+    window.timeInterval = timeInterval;
   },
 
   async _logicQuiz(cat) {
