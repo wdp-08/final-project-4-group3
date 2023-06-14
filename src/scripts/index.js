@@ -11,9 +11,19 @@ const app = new App({
 });
 
 window.addEventListener('hashchange', () => {
+  window.history.forward();
   app.renderPage();
 });
 
 window.addEventListener('load', () => {
+  window.history.forward();
   app.renderPage();
 });
+
+function preventBack() {
+  window.history.forward();
+}
+
+setTimeout(preventBack(), 0);
+
+window.onunload = function () { null; };

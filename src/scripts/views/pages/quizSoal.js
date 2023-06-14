@@ -3,6 +3,8 @@ import {
 } from '../../utils/functions';
 import soalQuiz from '../../utils/soalQuiz';
 
+function preventBack() { window.history.forward(); }
+
 const QuizSoal = {
   async render() {
     return `
@@ -46,12 +48,13 @@ const QuizSoal = {
   },
 
   async afterRender() {
+    setTimeout(preventBack, 0);
+    window.onunload = () => null;
     const userAccess = getUserInfo();
     const getCat = (localStorage.getItem('cat')) ? JSON.parse(localStorage.getItem('cat')).cat_quiz : null;
     if (!getCat) {
       redirect('#/dashboard');
-    }
-    if (!userAccess) {
+    } else if (!userAccess) {
       redirect('#/');
     } else {
       const modalbackdrop = document.querySelector('.modal-backdrop');
