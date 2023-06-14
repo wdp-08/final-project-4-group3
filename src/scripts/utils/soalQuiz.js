@@ -89,7 +89,7 @@ function _renderTime() {
       const date = new Date();
       const hasilQuis = {
         score: scoreUser,
-        email: userInfo.email,
+        nama_user: userInfo.nama_user,
         id_user: userInfo.id,
         tanggal: date.toISOString(),
       };

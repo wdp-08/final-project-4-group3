@@ -153,8 +153,9 @@ const Dashboard = {
       const listhistoryscoreall = document.getElementById('list-history-score-allUser');
       listhistoryscore.innerHTML = loadPage();
       listhistoryscoreall.innerHTML = loadPage();
-      const riwayatScore = await ScoreInit.getScoreByEmail(userAccess.email);
+      const riwayatScore = await ScoreInit.getScoreByEmail(userAccess.id_user);
       const riwayatScoreAll = await ScoreInit.getScoreByEmail();
+
       if (riwayatScore !== null) {
         listhistoryscore.innerHTML = '';
         riwayatScore.forEach((doc) => {
@@ -162,6 +163,12 @@ const Dashboard = {
           resultData.id = doc.id;
           listhistoryscore.innerHTML += cardHistoryScore(resultData);
         });
+      } else {
+        listhistoryscore.innerHTML = '';
+        listhistoryscore.innerHTML = cardNotYetHistoryScore();
+      }
+
+      if (riwayatScoreAll !== null) {
         listhistoryscoreall.innerHTML = '';
         riwayatScoreAll.forEach((doc) => {
           const resultData = doc.data();
@@ -169,8 +176,8 @@ const Dashboard = {
           listhistoryscoreall.innerHTML += cardHistoryScoreAll(resultData);
         });
       } else {
-        listhistoryscore.innerHTML = '';
-        listhistoryscore.innerHTML = cardNotYetHistoryScore();
+        listhistoryscoreall.innerHTML = '';
+        listhistoryscoreall.innerHTML = cardNotYetHistoryScore();
       }
     }
   },

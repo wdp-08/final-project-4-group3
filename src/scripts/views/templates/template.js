@@ -37,7 +37,7 @@ const cardHistoryScoreAll = (data) => `
         <div class="d-flex justify-content-between align-items-center px-2">
             <div>
                 <span class="fs-6 d-block w-full text-secondary">${formatDate(data.tanggal)}</span>
-                <span class="fs-6">${data.email}</span>
+                <span class="fs-6">${data.nama_user}</span>
             </div>
             <span class="fw-bold fs-3 text-center text-primary-me">${data.score.toString()}</span>
         </div>
