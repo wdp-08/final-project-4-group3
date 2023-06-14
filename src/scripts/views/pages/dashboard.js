@@ -153,7 +153,7 @@ const Dashboard = {
       const listhistoryscoreall = document.getElementById('list-history-score-allUser');
       listhistoryscore.innerHTML = loadPage();
       listhistoryscoreall.innerHTML = loadPage();
-      const riwayatScore = await ScoreInit.getScoreByEmail(userAccess.id_user);
+      const riwayatScore = await ScoreInit.getScoreByEmail(userAccess.id);
       const riwayatScoreAll = await ScoreInit.getScoreByEmail();
 
       if (riwayatScore !== null) {
