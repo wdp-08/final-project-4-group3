@@ -28,8 +28,8 @@ const QuizSoal = {
 
                             <div class="card-body d-flex justify-content-between mt-3">
                                 <div>
-                                    <div class="card rounded-5 bg-warning text-center justify-content-center ms-3"
-                                    style="width: 3rem; height: 3rem;" id="time">0</div>
+                                    <div class="card rounded-circle bg-warning text-center justify-content-center ms-3 fs-2 fw-bold border border-5 border-warning text-white"
+                                    style="width: 60px; height: 60px;" id="time">0</div>
                                 </div>
                                 <div id="circle-true" class="d-flex">
                                 </div>
